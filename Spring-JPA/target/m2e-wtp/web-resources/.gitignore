@@ -1,1 +1,6 @@
 /META-INF/
+
+# Eclipse config
+.classpath
+.project
+.settings/
