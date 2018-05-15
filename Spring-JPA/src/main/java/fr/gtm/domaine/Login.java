@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,7 +24,9 @@ public class Login {
 	private Integer idLogin;
 	private String login;
 	private String motDePasse;
-	private Integer idConseiller;
+	
+	@OneToOne
+	private Conseiller conseiller;
 	// Constructeur parametre
 
 	public Login() {
@@ -41,8 +44,6 @@ public class Login {
 		this.idLogin = idLogin;
 	}
 
-
-
 	public String getLogin() {
 		return login;
 	}
@@ -59,13 +60,14 @@ public class Login {
 		this.motDePasse = motDePasse;
 	}
 
-	public Integer getIdConseiller() {
-		return idConseiller;
+	public Conseiller getConseiller() {
+		return conseiller;
 	}
 
-	public void setIdConseiller(Integer idConseiller) {
-		this.idConseiller = idConseiller;
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
 	}
+
 
 	
 

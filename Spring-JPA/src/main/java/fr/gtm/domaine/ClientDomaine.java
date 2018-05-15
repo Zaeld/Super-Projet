@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -30,7 +32,9 @@ public class ClientDomaine {
 	private String email;
 	private String telephone;
 	private Double soldeTotal;
-	private Integer idConseiller;
+	
+	@ManyToOne
+	private Conseiller conseiller;
 
 	// Constructeur par defaut et parametre
 
@@ -46,32 +50,39 @@ public class ClientDomaine {
 	}
 
 	// Getters et Setters
-	public String getEmail() {
-		return email;
+	
+
+
+	/* Redéfinition de la méthode toString()
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString() {
+		return this.nom + " " + this.prenom + " est le client " + this.getIdClient()
+				+ " avec comme conseiller le conseiller " + this.conseiller.getIdConseiller() + " ";
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getIdConseiller() {
-		return idConseiller;
-	}
-
-	public void setIdConseiller(int idConseiller) {
-		this.idConseiller = idConseiller;
-	}
-
-	public double getSoldeTotal() {
-		return soldeTotal;
-	}
-
-	public void setSoldeTotal(double soldeTotal) {
-		this.soldeTotal = soldeTotal;
+	public int getIdClient() {
+		return idClient;
 	}
 
 	public void setIdClient(int idClient) {
 		this.idClient = idClient;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 	public String getAdresse() {
@@ -98,6 +109,14 @@ public class ClientDomaine {
 		this.ville = ville;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getTelephone() {
 		return telephone;
 	}
@@ -106,32 +125,19 @@ public class ClientDomaine {
 		this.telephone = telephone;
 	}
 
-	public int getIdClient() {
-		return idClient;
+	public Double getSoldeTotal() {
+		return soldeTotal;
 	}
 
-	public String getNom() {
-		return nom;
+	public void setSoldeTotal(Double soldeTotal) {
+		this.soldeTotal = soldeTotal;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public Conseiller getConseiller() {
+		return conseiller;
 	}
 
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-
-	/* Redéfinition de la méthode toString()
-	 * @see java.lang.Object#toString()
-	 */
-	public String toString() {
-		return this.nom + " " + this.prenom + " est le client " + this.getIdClient()
-				+ " avec comme conseiller le conseiller " + this.idConseiller + " ";
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
 	}
 }

@@ -44,7 +44,7 @@ public class ConseillerWebService {
 		if(reponse==null)
 		retourConseiller=null;
 		else {
-			retourConseiller=this.conseillerRepo.findById(reponse.getIdConseiller());
+			retourConseiller=this.conseillerRepo.findById(reponse.getConseiller().getIdConseiller());
 		}
 		Conseiller conseillerReponse=retourConseiller.get();
 		return conseillerReponse;
@@ -53,7 +53,7 @@ public class ConseillerWebService {
 	}
 	@GetMapping("/{idConseiller}")
 	List<ClientDomaine> listeClientsConseiller(@PathVariable Integer idConseiller){
-		List<ClientDomaine> listeClients = this.clientRepo.findByIdConseiller(idConseiller);
+		List<ClientDomaine> listeClients = this.clientRepo.findByConseiller_idConseiller(idConseiller);
 		return listeClients;
 		
 	}

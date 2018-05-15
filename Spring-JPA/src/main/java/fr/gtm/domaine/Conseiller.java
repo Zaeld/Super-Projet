@@ -1,10 +1,13 @@
 package fr.gtm.domaine;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,9 +23,12 @@ public class Conseiller {
 	@Id
 	@Column(name = "idConseiller")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idConseiller;
+	private Integer idConseiller;
 	private String nom;
 	private String prenom;
+	
+	@OneToMany(mappedBy="conseiller")
+	private Collection<ClientDomaine> Clients;
 
 	// Constructeur par defaut et parametre
 
@@ -30,10 +36,6 @@ public class Conseiller {
 		super();
 	}
 
-	public Conseiller(int idConseiller) {
-		super();
-		this.idConseiller = idConseiller;
-	}
 	public Conseiller(String nom, String prenom) {
 		super();
 		this.nom = nom;
@@ -41,11 +43,11 @@ public class Conseiller {
 	}
 	// Getters et Setters
 
-	public int getIdConseiller() {
+	public Integer getIdConseiller() {
 		return idConseiller;
 	}
 
-	public void setIdConseiller(int idConseiller) {
+	public void setIdConseiller(Integer idConseiller) {
 		this.idConseiller = idConseiller;
 	}
 
@@ -64,5 +66,6 @@ public class Conseiller {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
 
 }
