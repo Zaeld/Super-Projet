@@ -8,9 +8,9 @@
 
 			<properties>
 				<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-				<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jsfspringbdd" />
+				<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/proxibanquev3" />
 				<property name="hibernate.connection.user" value="root" />
-				<property name="hibernate.connection.password" value="alex2616" />
+				<property name="hibernate.connection.password" value="root" />
 				<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect" />
 			</properties>
 		</persistence-unit>
