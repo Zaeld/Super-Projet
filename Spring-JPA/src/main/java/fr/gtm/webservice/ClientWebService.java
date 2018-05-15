@@ -15,6 +15,7 @@ import java.util.List;
 
 import fr.gtm.domaine.ClientDomaine;
 import fr.gtm.repository.ClientRepository;
+import fr.gtm.repository.IClientService;
 
 
 @RestController

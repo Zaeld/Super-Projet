@@ -16,15 +16,13 @@ http://www.springframework.org/schema/mvc
 
 	<!-- Activation du scan du package controller pour l'analyse des classes 
 		annotées -->
-	<context:component-scan base-package="fr.gtm.controller" />
-		<context:component-scan base-package="fr.gtm.webservice" />
+	<context:component-scan base-package="fr.gtm"/>
+			
 	
 	<jpa:repositories base-package="fr.gtm.repository" />
 	<tx:annotation-driven proxy-target-class="true" />
 	<mvc:annotation-driven />
-<bean id="client" class="fr.gtm.domaine.ClientDomaine">
-
-	</bean>
+<bean id="client" class="fr.gtm.domaine.ClientDomaine"></bean>
 	<!-- Bean de configuration Spring : Objet permettant de resoudre les noms 
 		de vues (ModelAndView) en page JSP -->
 	<bean id="viewResolver"
